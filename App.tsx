@@ -5,6 +5,8 @@ import { StatusBar } from 'expo-status-bar';
 import { MainTabs } from './src/navigation/MainTabs';
 import type { RootStackParamList } from './src/navigation/types';
 import { GoLiveScreen } from './src/screens/GoLiveScreen';
+import { LiveViewerScreen } from './src/screens/LiveViewerScreen';
+import { PartyViewerScreen } from './src/screens/PartyViewerScreen';
 import { colors } from './src/theme/colors';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -36,6 +38,24 @@ export default function App() {
             name="GoLive"
             component={GoLiveScreenWrapper}
             options={{ presentation: 'fullScreenModal', animation: 'slide_from_bottom' }}
+          />
+          <Stack.Screen
+            name="LiveViewer"
+            component={LiveViewerScreen}
+            options={{
+              presentation: 'fullScreenModal',
+              animation: 'slide_from_bottom',
+              gestureEnabled: true,
+            }}
+          />
+          <Stack.Screen
+            name="PartyViewer"
+            component={PartyViewerScreen}
+            options={{
+              presentation: 'fullScreenModal',
+              animation: 'slide_from_bottom',
+              gestureEnabled: true,
+            }}
           />
         </Stack.Navigator>
       </NavigationContainer>

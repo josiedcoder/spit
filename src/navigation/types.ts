@@ -1,3 +1,5 @@
+import type { LiveFeedFilter } from '../components/live/LiveFeedHeader';
+
 export type MainTabParamList = {
   Live: undefined;
   Party: undefined;
@@ -8,4 +10,11 @@ export type MainTabParamList = {
 export type RootStackParamList = {
   MainTabs: undefined;
   GoLive: undefined;
+  LiveViewer: {
+    streamId: string;
+    filter?: LiveFeedFilter;
+  };
+  PartyViewer: {
+    roomId: string;
+  };
 };

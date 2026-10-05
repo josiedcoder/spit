@@ -1,4 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Platform } from 'react-native';
 import { SpitTabBar } from '../components/SpitTabBar';
 import { LiveScreen } from '../screens/LiveScreen';
 import { PartyScreen } from '../screens/PartyScreen';
@@ -20,6 +21,15 @@ export function MainTabs({ onGoLivePress }: Props) {
       screenOptions={{
         headerShown: false,
         sceneStyle: { backgroundColor: colors.background },
+        tabBarStyle: Platform.select({
+          ios: {
+            position: 'absolute',
+            backgroundColor: 'transparent',
+            borderTopWidth: 0,
+            elevation: 0,
+          },
+          default: {},
+        }),
       }}
     >
       <Tab.Screen name="Live" component={LiveScreen} />
